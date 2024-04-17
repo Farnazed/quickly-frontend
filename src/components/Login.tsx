@@ -146,7 +146,7 @@ function Login() {
             placeholder="password"
           />
         </div>
-        <button className="bg-teal-500 rounded-full  mt-7 py-1 px-4">
+        <button className="bg-teal-500 rounded-full text-white mt-7 py-1 px-4">
           Login
         </button>
       </form>

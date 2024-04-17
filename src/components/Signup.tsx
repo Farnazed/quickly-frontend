@@ -11,19 +11,25 @@ function Signup() {
     value: '',
     isSet: false,
   });
-  const [confirmEmail, setConfirmEmail] = useState({
+  const [confirmEmail, setConfirmEmail] = useState<{
+    value: string;
+    isSet: boolean;
+  }>({
     value: '',
     isSet: false,
   });
-  const [password, setPassword] = useState({
+  const [password, setPassword] = useState<{ value: string; isSet: boolean }>({
     value: '',
     isSet: false,
   });
-  const [confirmPassword, setConfirmPassword] = useState({
+  const [confirmPassword, setConfirmPassword] = useState<{
+    value: string;
+    isSet: boolean;
+  }>({
     value: '',
     isSet: false,
   });
-  const [validForm, setValidForm] = useState(true);
+  const [validForm, setValidForm] = useState<boolean>(true);
   const [website, setWebsite] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [responseFromServer, setResponseFromServer] = useState<string>('');
@@ -87,30 +93,30 @@ function Signup() {
       body: JSON.stringify(body),
     };
     try {
-      // const result = await fetch(
-      //   'https://api-dev.quicklyinc.com/auth/signup',
-      //   requestOptions
-      // ).then((response) => response.json());
-      // console.log(result);
-      const result = {
-        message: 'Signup Succesful!',
-        success: true,
-        token:
-          'eyJraWQiOiJrclhKajg5WTE0bWNxalRsNkRjR0hlMURoWTlvXC90QlgrOU8yTGp4NGwzMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiODRmZjM5NS1lYTlhLTRlNWYtYmRlOS04OGUwNjc1ZTA4ZDMiLCJjb2duaXRvOmdyb3VwcyI6WyJvd25lciJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX2xDTWowTnJKeSIsImNvZ25pdG86dXNlcm5hbWUiOiJiODRmZjM5NS1lYTlhLTRlNWYtYmRlOS04OGUwNjc1ZTA4ZDMiLCJvcmlnaW5fanRpIjoiNmExNzlkODgtZmRjNi00MDA1LWFkY2UtZjBiYjI4MGMxYzJhIiwiYXVkIjoiMm45aHB0MDkxOHZmdmFsMTFsZnFwajdubTEiLCJldmVudF9pZCI6ImVjYTE2OTg4LTc0ZGMtNDUwZi04OTZjLTY5M2EzZmI1MTNmYSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzEzMzAxODkyLCJuYW1lIjoiam9obiBzbWl0aCIsImV4cCI6MTcxMzMxOTg5MiwiaWF0IjoxNzEzMzAxODkyLCJqdGkiOiIzODBiNDE4Yy0zOGIwLTQ0YjAtYjZjNC04YWE2NTg2YTk2NzkiLCJlbWFpbCI6InNtaXRAZy5jb20ifQ.cwDmst-imAGD0L22fPlnL06wjtIy3xgDosNOMpJN--Qk-gxi5KxV25vTBDugfB9iC1FiY_TVJs0ecr4rLikcw3KBBbJf7Pb_ZkVJkAgQ1aKpDBPjgNWzWZa4yrKn-mY52RwmLq6Rq-GaTfhSnmOcgqzMN0qeAtR0inKMFLnJe2tptlCC3CnIDnENu689X8rzbxgAAFMXv93IOPoObD0mNJqw0-Xbam9Is_eRU3fypuZJS0eyxozucQ2eZWxO-uQR4-6H8BPl01eE4nkhbWxoddsQI8oLQBCPYuAv1yIRut0ZHRDolzTo-S-7sq2R19oyDrOcKwXfjbGtQwZ0KJv48A',
-        user: {
-          CompanyId: 483,
-          cognito_id: 'b84ff395-ea9a-4e5f-bde9-88e0675e08d3',
-          company_id: 483,
-          createdAt: '2024-04-16T21:11:32.478Z',
-          email: 'smit@g.com',
-          first_name: 'john',
-          full_name: 'john smith',
-          id: 495,
-          last_name: 'smith',
-          updatedAt: '2024-04-16T21:11:32.478Z',
-          verified: false,
-        },
-      };
+      const result = await fetch(
+        'https://api-dev.quicklyinc.com/auth/signup',
+        requestOptions
+      ).then((response) => response.json());
+      console.log(result);
+      // const result = {
+      //   message: 'Signup Succesful!',
+      //   success: true,
+      //   token:
+      //     'eyJraWQiOiJrclhKajg5WTE0bWNxalRsNkRjR0hlMURoWTlvXC90QlgrOU8yTGp4NGwzMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiODRmZjM5NS1lYTlhLTRlNWYtYmRlOS04OGUwNjc1ZTA4ZDMiLCJjb2duaXRvOmdyb3VwcyI6WyJvd25lciJdLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX2xDTWowTnJKeSIsImNvZ25pdG86dXNlcm5hbWUiOiJiODRmZjM5NS1lYTlhLTRlNWYtYmRlOS04OGUwNjc1ZTA4ZDMiLCJvcmlnaW5fanRpIjoiNmExNzlkODgtZmRjNi00MDA1LWFkY2UtZjBiYjI4MGMxYzJhIiwiYXVkIjoiMm45aHB0MDkxOHZmdmFsMTFsZnFwajdubTEiLCJldmVudF9pZCI6ImVjYTE2OTg4LTc0ZGMtNDUwZi04OTZjLTY5M2EzZmI1MTNmYSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzEzMzAxODkyLCJuYW1lIjoiam9obiBzbWl0aCIsImV4cCI6MTcxMzMxOTg5MiwiaWF0IjoxNzEzMzAxODkyLCJqdGkiOiIzODBiNDE4Yy0zOGIwLTQ0YjAtYjZjNC04YWE2NTg2YTk2NzkiLCJlbWFpbCI6InNtaXRAZy5jb20ifQ.cwDmst-imAGD0L22fPlnL06wjtIy3xgDosNOMpJN--Qk-gxi5KxV25vTBDugfB9iC1FiY_TVJs0ecr4rLikcw3KBBbJf7Pb_ZkVJkAgQ1aKpDBPjgNWzWZa4yrKn-mY52RwmLq6Rq-GaTfhSnmOcgqzMN0qeAtR0inKMFLnJe2tptlCC3CnIDnENu689X8rzbxgAAFMXv93IOPoObD0mNJqw0-Xbam9Is_eRU3fypuZJS0eyxozucQ2eZWxO-uQR4-6H8BPl01eE4nkhbWxoddsQI8oLQBCPYuAv1yIRut0ZHRDolzTo-S-7sq2R19oyDrOcKwXfjbGtQwZ0KJv48A',
+      //   user: {
+      //     CompanyId: 483,
+      //     cognito_id: 'b84ff395-ea9a-4e5f-bde9-88e0675e08d3',
+      //     company_id: 483,
+      //     createdAt: '2024-04-16T21:11:32.478Z',
+      //     email: 'smit@g.com',
+      //     first_name: 'john',
+      //     full_name: 'john smith',
+      //     id: 495,
+      //     last_name: 'smith',
+      //     updatedAt: '2024-04-16T21:11:32.478Z',
+      //     verified: false,
+      //   },
+      // };
       if (result.success) {
         saveSession(result.token, result.user);
       }
@@ -205,7 +211,7 @@ function Signup() {
           placeholder="first name"
         />
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-7"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-7"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -220,7 +226,7 @@ function Signup() {
           placeholder="last name"
         />
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-7"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-7"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -239,7 +245,7 @@ function Signup() {
         />
         <ValidateEmailAddress />
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-4"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-4"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -254,11 +260,11 @@ function Signup() {
             setConfirmEmail({ ...confirmEmail, isSet: true });
           }}
           type="text"
-          placeholder="e-mail address"
+          placeholder="confirm e-mail address"
         />
         <ValidateConfirmEmailAddress />
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-4"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-4"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -277,7 +283,7 @@ function Signup() {
         />
         <PasswordErrorMessage />
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-4"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-4"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -292,12 +298,12 @@ function Signup() {
           onBlur={() => {
             setConfirmPassword({ ...confirmPassword, isSet: true });
           }}
-          placeholder="password"
+          placeholder="confirm password"
         />
         <ConfirmPasswordErrorMessage />
 
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-4"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-4"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -312,7 +318,7 @@ function Signup() {
           placeholder="website"
         />
         <input
-          className="bg-gray-700 bg-opacity-0  border-b w-full mt-7"
+          className="bg-gray-700 bg-opacity-0 border-b w-full mt-7"
           style={{
             WebkitAppearance: 'none',
             MozAppearance: 'none',
@@ -326,7 +332,7 @@ function Signup() {
           type="text"
           placeholder="phone number"
         />
-        <button className="bg-teal-500 rounded-full  mt-7  py-1 px-4">
+        <button className="bg-teal-500 rounded-full text-white mt-7 py-1 px-4">
           Sign up
         </button>
       </form>
