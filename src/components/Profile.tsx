@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getStoredSession, endSession } from './services/sessionService';
+import { getStoredSession, endSession } from '../services/sessionService';
 import { useEffect, useState } from 'react';
 
 interface User {
@@ -17,7 +17,7 @@ function Profile() {
   useEffect(() => {
     const storedSession = getStoredSession();
     setSession(storedSession);
-  }, []); // Empty dependency array to run the effect only once when the component mounts
+  }, []);
 
   const clearSession = () => {
     endSession();

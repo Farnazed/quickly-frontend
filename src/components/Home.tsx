@@ -4,7 +4,7 @@ import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Signup from './Signup';
 import Profile from './Profile';
-import { getStoredSession } from './services/sessionService';
+import { getStoredSession } from '../services/sessionService';
 
 function Home() {
   const location = useLocation();
@@ -36,7 +36,10 @@ function Home() {
     >
       {location.pathname !== '/profile' && (
         <div className="bg-teal-500 rounded-l-lg flex items-center shadow-xl">
-          <p className="text-center w-full text-white font-light text-3xl p-10">
+          <p
+            data-testid="welcome"
+            className="text-center w-full text-white font-light text-3xl p-10"
+          >
             Welcome!
           </p>
         </div>
@@ -61,7 +64,7 @@ function Home() {
               to="/login"
               style={{ padding: 5 }}
             >
-              Login
+              Log in
             </Link>
             <Link
               className={`bg-teal-500 rounded-r-full w-16 text-center ${
@@ -87,7 +90,7 @@ function Home() {
         {location.pathname === '/' && (
           <div className="flex grow items-center">
             <p className="text-center w-full text-teal-500 font-light text-3xl md:-mt-20">
-              Please signup or log in!
+              Please sign up or log in!
             </p>
           </div>
         )}

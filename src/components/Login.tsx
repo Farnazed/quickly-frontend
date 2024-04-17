@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { saveSession } from './services/sessionService';
+import { saveSession } from '../services/sessionService';
 import { useNavigate } from 'react-router-dom';
 
 interface ServerResponse {

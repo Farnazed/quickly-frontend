@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Home from './Home';
+import Home from './components/Home';
 import { Routes, Route } from 'react-router-dom';
-import Profile from './Profile';
-
-import './App.css';
+import Profile from './components/Profile';
 
 function App() {
   return (
